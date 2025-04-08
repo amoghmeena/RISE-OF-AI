@@ -136,6 +136,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="LevelA.cpp" />
     <ClCompile Include="LevelB.cpp" />
+    <ClCompile Include="LevelC.cpp" />
     <ClCompile Include="Lose.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Map.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="LevelA.h" />
     <ClInclude Include="LevelB.h" />
+    <ClInclude Include="LevelC.h" />
     <ClInclude Include="Lose.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Menu.h" />
