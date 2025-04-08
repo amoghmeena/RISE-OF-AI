@@ -67,8 +67,8 @@ void LevelB::initialise() {
     GLuint enemy_texture_id = Utility::load_texture("assets/ghost.png");
    
     m_game_state.enemies = new Entity[ENEMY_COUNT];
-    // IMPORTANT: Set the number of enemies in the level.
-    m_number_of_enemies = ENEMY_COUNT;  // <-- Add this!
+   
+    m_number_of_enemies = ENEMY_COUNT; 
 
     m_game_state.enemies[0] = Entity(enemy_texture_id, 1.0f, 1.0f, 1.0f, ENEMY, GUARD, WALKING);
     SDL_Log("Enemy initial position set to (4, -4, 0)");
