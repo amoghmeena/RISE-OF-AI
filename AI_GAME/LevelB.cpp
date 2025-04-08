@@ -84,6 +84,7 @@ void LevelB::initialise() {
     Mix_PlayMusic(m_game_state.bgm, -1);
     Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
     m_game_state.jump_sfx = Mix_LoadWAV("assets/jump.wav");
+    m_game_state.hurt_sfx = Mix_LoadWAV("assets/hurt.wav");
 }
 
 void LevelB::update(float delta_time) {
@@ -97,6 +98,7 @@ void LevelB::update(float delta_time) {
     for (int i = 0; i < 1; i++) {
         if (m_game_state.player->check_collision(&m_game_state.enemies[i])) {
             g_player_lives--;
+            Mix_PlayChannel(-1, m_game_state.hurt_sfx, 0);
             // Optionally reposition the player after being hit in LevelB.
             m_game_state.player->set_position(glm::vec3(3.0f, -3.0f, 0.0f));
             SDL_Log("Player collided with enemy! Lives remaining: %d", g_player_lives);

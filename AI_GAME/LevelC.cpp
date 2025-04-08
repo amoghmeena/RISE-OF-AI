@@ -87,6 +87,8 @@ void LevelC::initialise() {
     Mix_PlayMusic(m_game_state.bgm, -1);
     Mix_VolumeMusic(MIX_MAX_VOLUME / 2);
     m_game_state.jump_sfx = Mix_LoadWAV("assets/jump.wav");
+    m_game_state.hurt_sfx = Mix_LoadWAV("assets/hurt.wav");
+    m_game_state.win_sfx = Mix_LoadWAV("assets/power_up.wav");
 }
 
 void LevelC::update(float delta_time) {
@@ -102,6 +104,7 @@ void LevelC::update(float delta_time) {
     for (int i = 0; i < 1; i++) {
         if (m_game_state.player->check_collision(&m_game_state.enemies[i])) {
             g_player_lives--;
+            Mix_PlayChannel(-1, m_game_state.hurt_sfx, 0);
             m_game_state.player->set_position(glm::vec3(2.0f, -2.0f, 0.0f));
         }
     }
@@ -110,6 +113,7 @@ void LevelC::update(float delta_time) {
     if (m_game_state.player->get_position().x > (LEVEL_WIDTH - 3)) {
          
         is_end = true;
+        Mix_PlayChannel(-1, m_game_state.win_sfx, 0);
     }
 }
 

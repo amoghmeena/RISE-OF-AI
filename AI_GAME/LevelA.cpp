@@ -97,6 +97,7 @@ void LevelA::initialise()
 
     
     m_game_state.jump_sfx = Mix_LoadWAV("assets/jump.wav");
+    m_game_state.hurt_sfx = Mix_LoadWAV("assets/hurt.wav");
 }
 
 void LevelA::update(float delta_time)
@@ -112,6 +113,7 @@ void LevelA::update(float delta_time)
 
             // Decrement lives
             g_player_lives--;
+            Mix_PlayChannel(-1, m_game_state.hurt_sfx, 0);
 
             // Optionally reposition the player:
             m_game_state.player->set_position(glm::vec3(2.0f, 3.0f, 0.0f));
